@@ -1,5 +1,4 @@
 import java.io.*;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +48,18 @@ public class Parser {
 
         return output;
 
+    }
+
+    public int getBestKnown() throws IOException{
+        BufferedReader in = new BufferedReader(new FileReader(file));
+        String line = null;
+        int bestKnown = 0;
+        for(int i=0; i<6; i++){
+            line = in.readLine();
+        }
+        List<String> tmp = Arrays.asList(line.split(" "));
+        bestKnown = Integer.parseInt(tmp.get(2));
+        return bestKnown;
     }
 
     public List<Place> getPlaces() throws IOException {

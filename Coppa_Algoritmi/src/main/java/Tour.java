@@ -7,6 +7,12 @@ public class Tour {
 
     public Tour(){ }
 
+    public Tour(Tour tour){
+        for (int i=0; i< tour.tourSize(); i++){
+            tour.addPlace(tour.getPlace(i));
+        }
+    }
+
     public void addPlace(Place place){
         tour.add(place);
     }
@@ -20,6 +26,18 @@ public class Tour {
         }
         distance += tour.get(tour.size()-1).getDistance(tour.get(0));
         return distance;
+    }
+
+    public int tourSize(){
+        return tour.size();
+    }
+
+    public void addPlaceByIndex(int index, Place place){
+        tour.add(index, place);
+    }
+
+    public Place getPlace(int index){
+        return tour.get(index);
     }
 
     public double calculateError(int bestKnow){

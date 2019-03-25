@@ -4,10 +4,9 @@ public class NearestNeighbor {
 
     public NearestNeighbor() { }
 
-    public static Tour searchNearestNeighborTour(List<Place> places) {
+    public static Tour searchNearestNeighborTour(List<Place> places, int matrixDistances[][]) {
 
         Tour tour = new Tour();
-        int matrixDistances[][] = Place.getMatrixDistances(places);
         boolean[] visited = new boolean[matrixDistances[1].length+1];
 
         for (int i=0; i<visited.length; i++){
