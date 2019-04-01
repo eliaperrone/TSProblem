@@ -42,8 +42,6 @@ public class TwoOpt {
 
         Tour swappedTour = new Tour();
 
-//        System.out.println("swap i " + i + " j " + j);
-
         for(int k=0; k<=i-1; k++){
             swappedTour.addPlace(tour.getPlace(k));
         }
@@ -56,7 +54,6 @@ public class TwoOpt {
 
         swappedTour.addPlace(tour.getPlace(i));
 
-        //Add the remaining route
         for (int k=j+1; k<tour.tourSize(); k++){
             swappedTour.addPlace(tour.getPlace(k));
         }

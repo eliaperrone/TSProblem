@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Main {
         int bestKnown = 0;
 
         try {
-            // Get list of places
+            // Get list of places from file
             places = parser.getPlaces();
             // Get best known
             bestKnown = parser.getBestKnown();
@@ -20,6 +21,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        // Distances of Cities
         int[][] matrixDistances = Place.getMatrixDistances(places);
 
         /********************************************* NEAREST NEIGHBOR ***********************************************/
@@ -34,9 +36,10 @@ public class Main {
 
         // Calculate distance Tour
         System.out.println("Lunghezza Tour " + tour.calculateDistanceTour());
-        // Calculate error (rendere dinamico il bestKnow)
+        // Calculate error
         System.out.println("Errore Tour " + tour.calculateError(bestKnown) + "%");
 
+        System.out.println();
         /************************************************** 2-OPT *****************************************************/
         System.out.println("2-OPT");
 
@@ -49,15 +52,24 @@ public class Main {
 
         // Calculate distance Tour
         System.out.println("Lunghezza Tour " + tourAfterTwoOpt.calculateDistanceTour());
-        // Calculate error (rendere dinamico il bestKnow)
+        // Calculate error
         System.out.println("Errore Tour " + tourAfterTwoOpt.calculateError(bestKnown) + "%");
 
+        System.out.println();
         /***************************************** SIMULATED ANNEALING ************************************************/
         System.out.println("Simulated Annealing");
 
-        // Optime with Simulated Annealing
+        // Optime with Simulated Annealing (2-OPT is used into SA)
+        Tour tourAfterSimulatedAnnealing = SimulatedAnnealing.searchSimulatedAnnealing(tour);
 
+        // Print best tour after Simulated Annealing
+        tourAfterSimulatedAnnealing.printTour();
+        System.out.println();
 
+        // Calculate distance Tour
+        System.out.println("Lunghezza Tour " + tourAfterSimulatedAnnealing.calculateDistanceTour());
+        // Calculate error
+        System.out.println("Errore Tour " + tourAfterSimulatedAnnealing.calculateError(bestKnown) + "%");
     }
 
 }
