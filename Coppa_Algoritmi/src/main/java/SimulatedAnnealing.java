@@ -4,10 +4,9 @@ public class SimulatedAnnealing {
 
     private static Random random = new Random(13452644);
 
-    // TODO da implementare
     public static Tour doubleBridge(Tour tour) {
 
-        Tour outputTour = new Tour();
+        Tour outputTour = new Tour(tour.tourSize());
 
         int split = (tour.tourSize()/4);
 
@@ -55,6 +54,8 @@ public class SimulatedAnnealing {
         Tour current = tour;
         Tour best = current;
 
+        int iteration = 0;
+
         while((currentTime-initTime) < 180000){
 
             for (int i=0; i<100; i++){
@@ -75,7 +76,13 @@ public class SimulatedAnnealing {
             }
             temperature = temperature*cooling;
             currentTime = System.currentTimeMillis();
+
+            iteration++;
+
         }
+
+        System.out.println(iteration);
+
         return best;
     }
 }

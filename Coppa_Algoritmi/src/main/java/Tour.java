@@ -1,43 +1,39 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Tour {
 
-    private List<Place> tour = new ArrayList<>();
+    private Place[] tour = new Place[0];
+    private int currentIndex = 0;
 
-    public Tour(){ }
-
-    public Tour(Tour tour){
-        for (int i=0; i< tour.tourSize(); i++){
-            tour.addPlace(tour.getPlace(i));
-        }
+    public Tour(int size){
+        tour = new Place[size];
     }
 
     public void addPlace(Place place){
-        tour.add(place);
+        tour[currentIndex] = place;
+        currentIndex++;
     }
 
     public double calculateDistanceTour(){
         double distance = 0;
         int i=0;
-        while(i < tour.size()-1){
-            distance += tour.get(i).getDistance(tour.get(i+1));
+        while(i < tour.length-1){
+            distance += tour[i].getDistance(tour[i+1]);
             i++;
         }
-        distance += tour.get(tour.size()-1).getDistance(tour.get(0));
+        distance += tour[tour.length-1].getDistance(tour[0]);
         return distance;
     }
 
     public int tourSize(){
-        return tour.size();
+        return tour.length;
     }
 
     public void addPlaceByIndex(int index, Place place){
-        tour.add(index, place);
+        tour[index] = place;
     }
 
     public Place getPlace(int index){
-        return tour.get(index);
+        return tour[index];
     }
 
     public double calculateError(int bestKnow){

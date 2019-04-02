@@ -1,12 +1,11 @@
-import java.util.List;
 
 public class NearestNeighbor {
 
     public NearestNeighbor() { }
 
-    public static Tour searchNearestNeighborTour(List<Place> places, int matrixDistances[][]) {
+    public static Tour searchNearestNeighborTour(Place[] places, int matrixDistances[][]) {
 
-        Tour tour = new Tour();
+        Tour tour = new Tour(places.length);
         boolean[] visited = new boolean[matrixDistances[1].length+1];
 
         for (int i=0; i<visited.length; i++){
@@ -14,7 +13,7 @@ public class NearestNeighbor {
         }
 
         // Aggiungo la prima citta nel tour e la setto visitata
-        tour.addPlace(places.get(0));
+        tour.addPlace(places[0]);
         visited[0] = true;
 
         // Aggiungo le altre città vicine
@@ -29,7 +28,7 @@ public class NearestNeighbor {
                 }
             }
             // Aggiungo la città piu vicina alla città corrente
-            tour.addPlace(places.get(index));
+            tour.addPlace(places[index]);
             visited[index] = true;
 
             // Setto la città corrente come l'ultima città visitata

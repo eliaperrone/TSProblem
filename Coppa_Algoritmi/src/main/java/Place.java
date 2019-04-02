@@ -1,8 +1,7 @@
-import java.util.List;
 
 public class Place {
 
-    private static int idGenerator = 0;
+    private static int idGenerator = 1;
 
     private int id;
     private double positionX;
@@ -31,11 +30,11 @@ public class Place {
         return ((int) (Math.sqrt(Math.pow(this.getPositionX()-b.getPositionX(),2) + Math.pow(this.getPositionY()-b.getPositionY(),2)) + 0.5));
     }
 
-    public static int[][] getMatrixDistances(List<Place> places){
-        int[][] output = new int[places.size()][places.size()];
-        for (int i=0; i<places.size(); i++){
-            for (int j=0; j<places.size(); j++){
-                output[i][j] = places.get(i).getDistance(places.get(j));
+    public static int[][] getMatrixDistances(Place[] places){
+        int[][] output = new int[places.length][places.length];
+        for (int i=0; i<places.length; i++){
+            for (int j=0; j<places.length; j++){
+                output[i][j] = places[i].getDistance(places[j]);
             }
         }
         return output;

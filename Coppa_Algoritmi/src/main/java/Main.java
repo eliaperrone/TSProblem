@@ -1,33 +1,34 @@
 import java.io.IOException;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Parse file input
-        Parser parser = new Parser("ch130.tsp");
-        List<Place> places = new ArrayList<>();
-        int bestKnown = 0;
+        // Parse file
+        Parser parser = new Parser("d198.tsp");
 
-        try {
-            // Get list of places from file
-            places = parser.getPlaces();
-            // Get best known
+        // Get list of places
+        Place[] places = new Place[0];
+
+        // Get size places and best known of file
+        int size=0, bestKnown = 0;
+
+        try{
+            size = parser.getSizePlaces();
             bestKnown = parser.getBestKnown();
-        } catch (IOException e) {
+            places = new Place[size];
+            places = parser.getPlaces(size);
+        }catch (IOException e){
             e.printStackTrace();
         }
 
-        // Distances of Cities
+        // Get distances of cities
         int[][] matrixDistances = Place.getMatrixDistances(places);
 
         /********************************************* NEAREST NEIGHBOR ***********************************************/
         System.out.println("Nearest Neighbor");
 
-        // Search Nearest Neighbor Tour
+        //Search Nearest Neighbor Tour
         Tour tour = NearestNeighbor.searchNearestNeighborTour(places, matrixDistances);
 
         // Print best tour with Nearest Neighbor
@@ -40,6 +41,7 @@ public class Main {
         System.out.println("Errore Tour " + tour.calculateError(bestKnown) + "%");
 
         System.out.println();
+
         /************************************************** 2-OPT *****************************************************/
         System.out.println("2-OPT");
 
@@ -56,6 +58,7 @@ public class Main {
         System.out.println("Errore Tour " + tourAfterTwoOpt.calculateError(bestKnown) + "%");
 
         System.out.println();
+
         /***************************************** SIMULATED ANNEALING ************************************************/
         System.out.println("Simulated Annealing");
 

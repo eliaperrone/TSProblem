@@ -1,3 +1,4 @@
+
 public class TwoOpt {
 
     public TwoOpt(){ }
@@ -40,7 +41,7 @@ public class TwoOpt {
 
     public static Tour swap(int i, int j, Tour tour){
 
-        Tour swappedTour = new Tour();
+        Tour swappedTour = new Tour(tour.tourSize());
 
         for(int k=0; k<=i-1; k++){
             swappedTour.addPlace(tour.getPlace(k));
