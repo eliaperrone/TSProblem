@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Parse file
-        Parser parser = new Parser("d198.tsp");
+        Parser parser = new Parser("u1060.tsp");
 
         // Get list of places
         Place[] places = new Place[0];
@@ -24,6 +24,8 @@ public class Main {
 
         // Get distances of cities
         int[][] matrixDistances = Place.getMatrixDistances(places);
+
+        System.out.println(places[33]);
 
         /********************************************* NEAREST NEIGHBOR ***********************************************/
         System.out.println("Nearest Neighbor");

@@ -54,8 +54,6 @@ public class SimulatedAnnealing {
         Tour current = tour;
         Tour best = current;
 
-        int iteration = 0;
-
         while((currentTime-initTime) < 180000){
 
             for (int i=0; i<100; i++){
@@ -76,13 +74,7 @@ public class SimulatedAnnealing {
             }
             temperature = temperature*cooling;
             currentTime = System.currentTimeMillis();
-
-            iteration++;
-
         }
-
-        System.out.println(iteration);
-
         return best;
     }
 }
