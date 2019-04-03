@@ -2,7 +2,10 @@ import java.util.Random;
 
 public class SimulatedAnnealing {
 
-    private static Random random = new Random(13452644);
+    public static long seed;
+    private static Random random = new Random(seed);
+    public static double temperature; // 100
+    public static double alpha; // 0.95
 
     public static Tour doubleBridge(Tour tour) {
 
@@ -48,9 +51,6 @@ public class SimulatedAnnealing {
         long initTime = System.currentTimeMillis();
         long currentTime = 0;
 
-        double temperature = 100;
-        double cooling = 0.95;
-
         Tour current = tour;
         Tour best = current;
 
@@ -72,7 +72,7 @@ public class SimulatedAnnealing {
                     current = candidate;
                 }
             }
-            temperature = temperature*cooling;
+            temperature = temperature*alpha;
             currentTime = System.currentTimeMillis();
         }
         return best;
