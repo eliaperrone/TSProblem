@@ -246,20 +246,11 @@ public class Main {
         double bestu1060 = Double.MAX_VALUE;
         double bestfl1577 = Double.MAX_VALUE;
 
-        File output = new File("output.txt");
-        BufferedWriter writer = null;
-        try {
-            writer = new BufferedWriter(new FileWriter(output));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        int iteration = 0;
 
         while(true){
 
             // eil76
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingeil75 = SimulatedAnnealing.searchSimulatedAnnealing(toureil76);
@@ -277,7 +268,7 @@ public class Main {
 //            System.out.println("eil76 - iterazione: " + iteration);
 
             // kroA100
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingkroA100 = SimulatedAnnealing.searchSimulatedAnnealing(tourkroA100);
@@ -295,7 +286,7 @@ public class Main {
 //            System.out.println("kroA100 - iterazione: " + iteration);
 
             // ch130
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingch130 = SimulatedAnnealing.searchSimulatedAnnealing(tourch130);
@@ -313,7 +304,7 @@ public class Main {
 //            System.out.println("ch130 - iterazione: " + iteration);
 
             // d198
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingd198 = SimulatedAnnealing.searchSimulatedAnnealing(tourd198);
@@ -331,7 +322,7 @@ public class Main {
 //            System.out.println("d198 - iterazione: " + iteration);
 
             // lin318
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealinglin318 = SimulatedAnnealing.searchSimulatedAnnealing(tourlin318);
@@ -349,7 +340,7 @@ public class Main {
 //            System.out.println("lin318 - iterazione: " + iteration);
 
             // pr439
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingpr439 = SimulatedAnnealing.searchSimulatedAnnealing(tourpr439);
@@ -367,7 +358,7 @@ public class Main {
 //            System.out.println("pr439 - iterazione: " + iteration);
 
             // pcb442
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingpcb442 = SimulatedAnnealing.searchSimulatedAnnealing(tourpcb442);
@@ -385,7 +376,7 @@ public class Main {
 //            System.out.println("pcb442 - iterazione: " + iteration);
 
             // rat783
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingrat783 = SimulatedAnnealing.searchSimulatedAnnealing(tourrat783);
@@ -403,7 +394,7 @@ public class Main {
 //            System.out.println("rat783 - iterazione: " + iteration);
 
             // u1060
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingu1060 = SimulatedAnnealing.searchSimulatedAnnealing(touru1060);
@@ -421,7 +412,7 @@ public class Main {
 //            System.out.println("u1060 - iterazione: " + iteration);
 
             // fl1577
-            SimulatedAnnealing.seed = Math.abs(random.nextLong());
+            SimulatedAnnealing.seed = System.currentTimeMillis();
             SimulatedAnnealing.temperature = random.nextInt(80) + 100;
             SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingfl1577 = SimulatedAnnealing.searchSimulatedAnnealing(tourfl1577);
@@ -437,8 +428,6 @@ public class Main {
             }
 
 //            System.out.println("fl1577 - iterazione: " + iteration);
-
-            iteration++;
 
         }
 
