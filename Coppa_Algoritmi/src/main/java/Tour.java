@@ -1,7 +1,7 @@
 
 public class Tour {
 
-    private Place[] tour = new Place[0];
+    private Place[] tour;
     private int currentIndex = 0;
 
     public Tour(int size){
