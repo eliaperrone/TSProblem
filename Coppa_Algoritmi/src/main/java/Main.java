@@ -246,19 +246,29 @@ public class Main {
         double bestu1060 = Double.MAX_VALUE;
         double bestfl1577 = Double.MAX_VALUE;
 
+        try {
+            Files.delete(Paths.get("/home/eliaperrone/Dropbox/output.txt"));
+            Files.createFile(Paths.get("/home/eliaperrone/Dropbox/output.txt"));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
 
         while(true){
 
+            System.out.println("RUNNING...");
+
             // eil76
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            double temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingeil75 = SimulatedAnnealing.searchSimulatedAnnealing(toureil76);
             error = tourAfterSimulatedAnnealingeil75.calculateError(bestKnowneil76);
             if(error < besteil76){
                 besteil76 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: eil76 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: eil76 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + besteil76 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -269,14 +279,15 @@ public class Main {
 
             // kroA100
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingkroA100 = SimulatedAnnealing.searchSimulatedAnnealing(tourkroA100);
             error = tourAfterSimulatedAnnealingkroA100.calculateError(bestKnownkroA100);
             if(error < bestkroA100){
                 bestkroA100 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: kroA100 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: kroA100 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestkroA100 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -287,14 +298,15 @@ public class Main {
 
             // ch130
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingch130 = SimulatedAnnealing.searchSimulatedAnnealing(tourch130);
             error = tourAfterSimulatedAnnealingch130.calculateError(bestKnownch130);
             if(error < bestch130){
                 bestch130 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: ch130 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: ch130 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestch130 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -305,14 +317,15 @@ public class Main {
 
             // d198
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingd198 = SimulatedAnnealing.searchSimulatedAnnealing(tourd198);
             error = tourAfterSimulatedAnnealingd198.calculateError(bestKnownd198);
             if(error < bestd198){
                 bestd198 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: d198 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: d198 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestd198 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -323,14 +336,15 @@ public class Main {
 
             // lin318
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealinglin318 = SimulatedAnnealing.searchSimulatedAnnealing(tourlin318);
             error = tourAfterSimulatedAnnealinglin318.calculateError(bestKnownlin318);
             if(error < bestlin318){
                 bestlin318 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: lin318 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: lin318 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestlin318 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -341,14 +355,15 @@ public class Main {
 
             // pr439
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingpr439 = SimulatedAnnealing.searchSimulatedAnnealing(tourpr439);
             error = tourAfterSimulatedAnnealingpr439.calculateError(bestKnownpr439);
             if(error < bestpr439){
                 bestpr439 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: pr439 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: pr439 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestpr439 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -359,14 +374,15 @@ public class Main {
 
             // pcb442
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp =  Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingpcb442 = SimulatedAnnealing.searchSimulatedAnnealing(tourpcb442);
             error = tourAfterSimulatedAnnealingpcb442.calculateError(bestKnownpcb442);
             if(error < bestpcb442){
                 bestpcb442 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: pcb442 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: pcb442 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestpcb442 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -377,14 +393,15 @@ public class Main {
 
             // rat783
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingrat783 = SimulatedAnnealing.searchSimulatedAnnealing(tourrat783);
             error = tourAfterSimulatedAnnealingrat783.calculateError(bestKnownrat783);
             if(error < bestrat783){
                 bestrat783 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: rat783 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: rat783 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestrat783 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -395,14 +412,15 @@ public class Main {
 
             // u1060
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingu1060 = SimulatedAnnealing.searchSimulatedAnnealing(touru1060);
             error = tourAfterSimulatedAnnealingu1060.calculateError(bestKnownu1060);
             if(error < bestu1060){
                 bestu1060 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: u1060 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: u1060 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestu1060 + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -413,18 +431,25 @@ public class Main {
 
             // fl1577
             SimulatedAnnealing.seed = System.currentTimeMillis();
-            SimulatedAnnealing.temperature = random.nextInt(80) + 100;
-            SimulatedAnnealing.alpha = (random.nextDouble() * 0.1) + 0.9;
+            temp = Math.abs(random.nextInt(100)) + 80;
+            SimulatedAnnealing.temperature = temp;
+            SimulatedAnnealing.alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
             Tour tourAfterSimulatedAnnealingfl1577 = SimulatedAnnealing.searchSimulatedAnnealing(tourfl1577);
             error = tourAfterSimulatedAnnealingfl1577.calculateError(bestKnownfl1577);
             if(error < bestfl1577){
                 bestfl1577 = error;
                 try {
-                    Files.write(Paths.get("output.txt"), ("FILE: fl1577 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + SimulatedAnnealing.temperature
+                    Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("FILE: fl1577 SEED: " + SimulatedAnnealing.seed + " TEMPERATURE: " + temp
                             + " ALPHA:" + SimulatedAnnealing.alpha + " ERROR: " + bestfl1577 + "\n\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+
+            try {
+                Files.write(Paths.get("/home/eliaperrone/Dropbox/output.txt"), ("\n").getBytes(), StandardOpenOption.APPEND);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
 //            System.out.println("fl1577 - iterazione: " + iteration);
