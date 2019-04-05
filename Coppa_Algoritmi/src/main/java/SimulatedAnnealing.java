@@ -2,9 +2,7 @@ import java.util.Random;
 
 public class SimulatedAnnealing {
 
-    private static Random random = new Random(13452644);
-
-    public static Tour doubleBridge(Tour tour) {
+    public static Tour doubleBridge(Tour tour, Random random) {
 
         Tour outputTour = new Tour(tour.tourSize());
 
@@ -43,13 +41,10 @@ public class SimulatedAnnealing {
         return outputTour;
     }
 
-    public static Tour searchSimulatedAnnealing(Tour tour){
+    public static Tour searchSimulatedAnnealing(Tour tour, Random random, double temperature, double cooling){
 
         long initTime = System.currentTimeMillis();
         long currentTime = 0;
-
-        double temperature = 100;
-        double cooling = 0.95;
 
         Tour current = tour;
         Tour best = current;
@@ -58,7 +53,7 @@ public class SimulatedAnnealing {
 
             for (int i=0; i<100; i++){
 
-                Tour next = doubleBridge(current);
+                Tour next = doubleBridge(current, random);
                 Tour candidate = TwoOpt.searchTwoOpt(next);
 
                 if(candidate.calculateDistanceTour() < current.calculateDistanceTour()){
