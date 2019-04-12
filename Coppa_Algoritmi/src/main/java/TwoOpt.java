@@ -3,27 +3,28 @@ public class TwoOpt {
 
     public TwoOpt(){ }
 
-    public static Tour searchTwoOpt(Tour tour){
+    public static Tour searchTwoOpt(Tour tour, int[][] matrixDistances){
 
+        int tourSize = tour.tourSize();
         int improve = -1;
 
         while(improve < 0){
             int gain, indexI = 0, indexJ = 0,a, b;
             improve = 0;
-            for (int i=0; i<tour.tourSize(); i++){
-                for (int j=i+1; j<tour.tourSize()-1; j++){
+            for (int i=0; i<tourSize; i++){
+                for (int j=i+1; j<tourSize-1; j++){
                     if(i == 0){
-                        a = tour.tourSize()-1;
+                        a = tourSize-1;
                     } else {
                         a = i-1;
                     }
-                    if(j == tour.tourSize()){
+                    if(j == tourSize){
                         b = 0;
                     } else {
                         b = j+1;
                     }
-                    int straightDistance = tour.getPlace(i).getDistance(tour.getPlace(b)) + tour.getPlace(a).getDistance(tour.getPlace(j));
-                    int diagDistance = tour.getPlace(a).getDistance(tour.getPlace(i)) + tour.getPlace(j).getDistance(tour.getPlace(b));
+                    int straightDistance = tour.getPlace(i).getDistanceByMatrix(tour.getPlace(b), matrixDistances) + tour.getPlace(a).getDistanceByMatrix(tour.getPlace(j), matrixDistances);
+                    int diagDistance = tour.getPlace(a).getDistanceByMatrix(tour.getPlace(i), matrixDistances) + tour.getPlace(j).getDistanceByMatrix(tour.getPlace(b), matrixDistances);
                     gain = straightDistance - diagDistance;
                     if(gain < improve){
                         improve = gain;
@@ -39,7 +40,7 @@ public class TwoOpt {
         return  tour;
     }
 
-    public static Tour swap(int i, int j, Tour tour){
+    private static Tour swap(int i, int j, Tour tour){
 
         Tour swappedTour = new Tour(tour.tourSize());
 

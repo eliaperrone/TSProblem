@@ -13,14 +13,14 @@ public class Tour {
         currentIndex++;
     }
 
-    public double calculateDistanceTour(){
+    public double calculateDistanceTour(int[][] matrixDistances){
         double distance = 0;
         int i=0;
         while(i < tour.length-1){
-            distance += tour[i].getDistance(tour[i+1]);
+            distance += tour[i].getDistanceByMatrix(tour[i+1], matrixDistances);
             i++;
         }
-        distance += tour[tour.length-1].getDistance(tour[0]);
+        distance += tour[tour.length-1].getDistanceByMatrix(tour[0], matrixDistances);
         return distance;
     }
 
@@ -28,16 +28,16 @@ public class Tour {
         return tour.length;
     }
 
-    public void addPlaceByIndex(int index, Place place){
-        tour[index] = place;
-    }
+//    public void addPlaceByIndex(int index, Place place){
+//        tour[index] = place;
+//    }
 
     public Place getPlace(int index){
         return tour[index];
     }
 
-    public double calculateError(int bestKnow){
-        double currentDistance = calculateDistanceTour();
+    public double calculateError(int bestKnow, int[][] matrixDistances){
+        double currentDistance = calculateDistanceTour(matrixDistances);
         return (((currentDistance-bestKnow)/bestKnow)*100);
     }
 

@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Random;
 
 public class SimulatedAnnealing {
@@ -41,7 +45,12 @@ public class SimulatedAnnealing {
         return outputTour;
     }
 
-    public static Tour searchSimulatedAnnealing(Tour tour, Random random, double temperature, double cooling){
+    public static Tour searchSimulatedAnnealing(Tour tour, long seed, int[][] matrixDistances){
+
+        Random random = new Random(seed);
+
+        double temperature = Math.abs(random.nextInt(20)) + 100;
+        double alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
 
         long initTime = System.currentTimeMillis();
         long currentTime = 0;
@@ -49,27 +58,28 @@ public class SimulatedAnnealing {
         Tour current = tour;
         Tour best = current;
 
-        while((currentTime-initTime) < 180000){
+        while((currentTime-initTime) < 174000){
 
             for (int i=0; i<100; i++){
 
                 Tour next = doubleBridge(current, random);
-                Tour candidate = TwoOpt.searchTwoOpt(next);
+                Tour candidate = TwoOpt.searchTwoOpt(next, matrixDistances);
 
-                if(candidate.calculateDistanceTour() < current.calculateDistanceTour()){
+                if(candidate.calculateDistanceTour(matrixDistances) < current.calculateDistanceTour(matrixDistances)){
                     current = candidate;
 
-                    if(current.calculateDistanceTour() < best.calculateDistanceTour()){
+                    if(current.calculateDistanceTour(matrixDistances) < best.calculateDistanceTour(matrixDistances)){
                         best = current;
                     }
 
-                }else if(random.nextDouble() < Math.pow(Math.E,(-(candidate.calculateDistanceTour() - current.calculateDistanceTour()))/(180000-(currentTime-initTime)))){
+                }else if(random.nextDouble() < Math.pow(Math.E,(-(candidate.calculateDistanceTour(matrixDistances) - current.calculateDistanceTour(matrixDistances)))/(180000-(currentTime-initTime)))){
                     current = candidate;
                 }
             }
-            temperature = temperature*cooling;
+            temperature = temperature*alpha;
             currentTime = System.currentTimeMillis();
         }
+
         return best;
     }
 }

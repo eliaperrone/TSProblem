@@ -2,14 +2,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.Random;
+
+//TODO creare file output .tour uguale ai file .tsp con soluzione
 
 public class Main {
 
     public static void main(String[] args) {
 
         // Parse file
-        Parser parser = new Parser("rat783.tsp");
+        Parser parser = new Parser("u1060.tsp");
 
         // Get list of places
         Place[] places = new Place[0];
@@ -34,31 +35,27 @@ public class Main {
 
         System.out.println("Running..");
 
-        long seed = System.currentTimeMillis();
-        Random random = new Random(seed);
         double error = Double.MAX_VALUE;
 
         while(true) {
 
-            double temperature = Math.abs(random.nextInt(20)) + 100;
-            double alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
+            long seed = System.currentTimeMillis();
 
             // Optime with Simulated Annealing (2-OPT is used into SA)
-            Tour tourAfterSimulatedAnnealing = SimulatedAnnealing.searchSimulatedAnnealing(tour, random, temperature, alpha);
-            double current = tourAfterSimulatedAnnealing.calculateError(bestKnown);
+            Tour tourAfterSimulatedAnnealing = SimulatedAnnealing.searchSimulatedAnnealing(tour, seed, matrixDistances);
+            double current = tourAfterSimulatedAnnealing.calculateError(bestKnown, matrixDistances);
             int sizeTour = tourAfterSimulatedAnnealing.tourSize();
+
+            System.out.println(current + "%");
 
             if (current < error) {
                 error = current;
                 try {
-                    Files.write(Paths.get("output.txt"), ("File: rat783 Size:" + sizeTour + " Seed: " + seed + " Alpha: " + alpha + " Temperature: " + temperature + " Error: " + error + "\n").getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get("output.txt"), ("File: u1060 Size: " + sizeTour + " Tour Distance: " + tourAfterSimulatedAnnealing.calculateDistanceTour(matrixDistances) + " Seed: " + seed +  " Error: " + error + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
-            // Calculate error
-            System.out.println("Errore Tour " + tourAfterSimulatedAnnealing.calculateError(bestKnown) + "%");
         }
     }
 
