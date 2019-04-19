@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Parse file
-        Parser parser = new Parser("u1060.tsp");
+        Parser parser = new Parser("fl1577.tsp");
 
         // Get list of places
         Place[] places = new Place[0];
@@ -51,7 +51,7 @@ public class Main {
             if (current < error) {
                 error = current;
                 try {
-                    Files.write(Paths.get("output.txt"), ("File: u1060 Size: " + sizeTour + " Tour Distance: " + tourAfterSimulatedAnnealing.calculateDistanceTour(matrixDistances) + " Seed: " + seed +  " Error: " + error + "\n").getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get("output.txt"), ("File: fl1577 Size: " + sizeTour + " Tour Distance: " + tourAfterSimulatedAnnealing.calculateDistanceTour(matrixDistances) + " Seed: " + seed +  " Error: " + error + "\n").getBytes(), StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

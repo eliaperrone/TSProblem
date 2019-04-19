@@ -58,7 +58,7 @@ public class SimulatedAnnealing {
         Tour current = tour;
         Tour best = current;
 
-        while((currentTime-initTime) < 174000){
+        while((currentTime-initTime) < 172000){
 
             for (int i=0; i<100; i++){
 
