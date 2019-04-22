@@ -6,9 +6,15 @@ public class Parser {
 
     private static final String resourcesPath = "src/main/resources/";
     private static File file = null;
+    private String fileName;
 
     public Parser(String fileName){
-        file = new File(resourcesPath + fileName);
+        this.fileName = fileName;
+        file = new File(resourcesPath + fileName + ".tsp");
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 
     public int getSizePlaces() throws IOException {
