@@ -5,16 +5,16 @@ import java.io.IOException;
 
 public class FileTourGenerator {
 
-    public FileTourGenerator(Tour tour,String name, int[][] matrixDistances) {
+    public FileTourGenerator(Tour tour,String fileName, int[][] matrixDistances) {
 
         try {
 
-            File file = new File("src/main/output/"+name+".opt.tour");
+            File file = new File("src/main/output/"+fileName+".opt.tour");
             BufferedWriter bufferedWriter =new BufferedWriter(new FileWriter(file));
 
             StringBuilder textToWrite =new StringBuilder(
-                    "NAME : "+name+".opt.tour\n" +
-                    "COMMENT : Optimum tour for "+name+".tsp " + "(" + tour.calculateDistanceTour(matrixDistances) + ")\n" +
+                    "NAME : "+fileName+".opt.tour\n" +
+                    "COMMENT : Optimum tour for "+fileName+".tsp " + "(" + tour.calculateDistanceTour(matrixDistances) + ")\n" +
                     "TYPE : TOUR\n" +
                     "DIMENSION : " + tour.tourSize() + "\n" +
                     "TOUR_SECTION\n");

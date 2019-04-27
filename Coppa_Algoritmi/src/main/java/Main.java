@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Parse file
-        Parser parser = new Parser("lin318");
+        Parser parser = new Parser("u1060");
 
         //Get seed specific of file
         Utils utils = new Utils(parser.getFileName(), "seed");
@@ -28,14 +28,14 @@ public class Main {
         // Get matrix distances of places
         int[][] matrixDistances = Place.getMatrixDistances(places);
 
-        //Search Nearest Neighbor Tour
+        //Search Tour with Nearest Neighbor Algorithm
         Tour tour = NearestNeighbor.searchNearestNeighborTour(places, matrixDistances);
 
         long seed = utils.getSeed();
 
-        System.out.println("Running..");
+        System.out.println("Running " + parser.getFileName() + "..");
 
-        // Optime with Simulated Annealing (2-OPT is used into SA)
+        // Optime Tour with Simulated Annealing Algorithm
         Tour tourAfterSimulatedAnnealing = SimulatedAnnealing.searchSimulatedAnnealing(tour, seed, matrixDistances);
         double current = tourAfterSimulatedAnnealing.calculateError(bestKnown, matrixDistances);
 
@@ -44,6 +44,4 @@ public class Main {
         // Write output file
         FileTourGenerator fileTourGenerator = new FileTourGenerator(tourAfterSimulatedAnnealing, parser.getFileName(), matrixDistances);
     }
-
-
 }

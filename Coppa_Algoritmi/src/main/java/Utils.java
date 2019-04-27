@@ -26,6 +26,7 @@ public class Utils {
                 List<String> tmp = Arrays.asList(line.split(" "));
                 if(this.fileName.equals(tmp.get(0))){
                     seed = Long.parseLong(tmp.get(2));
+                    break;
                 }
             }
         }catch (IOException e){
