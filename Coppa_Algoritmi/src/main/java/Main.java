@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Parse file
-        Parser parser = new Parser("u1060");
+        Parser parser = new Parser("lin318");
 
         //Get seed specific of file
         Utils utils = new Utils(parser.getFileName(), "seed");
