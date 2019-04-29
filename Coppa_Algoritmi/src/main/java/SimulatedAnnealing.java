@@ -45,7 +45,7 @@ public class SimulatedAnnealing {
 
         Random random = new Random(seed);
 
-        double temperature = Math.abs(random.nextInt(20)) + 100;
+        double temperature = Math.abs(random.nextInt(40)) + 100;
         double alpha = Math.abs(random.nextDouble() * 0.1) + 0.9;
 
         long initTime = System.currentTimeMillis();
