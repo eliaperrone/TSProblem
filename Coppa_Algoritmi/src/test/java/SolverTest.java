@@ -1,57 +1,57 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class SolverTest {
 
     @Test(timeout = 181000)
-    public void ch130() {
-        assertTrue(true);
-    }
+    public void ch130() { Main.start("ch130"); }
 
     @Test(timeout = 181000)
-    public void d198() {
-        assertTrue(true);
-    }
+    public void d198() { Main.start("d198"); }
 
     @Test(timeout = 181000)
     public void eil76() {
-        assertTrue(true);
+        Main.start("eil76");
     }
 
     @Test(timeout = 181000)
     public void fl1577() {
-        assertTrue(true);
+        Main.start("fl1577");
     }
 
     @Test(timeout = 181000)
-    public void kroA100() {
-        assertTrue(true);
-    }
+    public void kroA100() { Main.start("kroA100"); }
 
     @Test(timeout = 181000)
-    public void lin318() {
-        assertTrue(true);
-    }
+    public void lin318() { Main.start("lin318"); }
 
     @Test(timeout = 181000)
-    public void pcb442() {
-        assertTrue(true);
-    }
+    public void pcb442() { Main.start("pcb442"); }
 
     @Test(timeout = 181000)
-    public void pr439() {
-        assertTrue(true);
-    }
+    public void pr439() { Main.start("pr439"); }
 
     @Test(timeout = 181000)
     public void rat783() {
-        assertTrue(true);
+        Main.start("rat783");
     }
 
     @Test(timeout = 181000)
-    public void u1060() {
-        assertTrue(true);
-    }
+    public void u1060() { Main.start("u1060"); }
 }
 
+/*
+
+ordine di esecuzione
+
+fl1577
+lin318
+pcb442
+rat783
+kroA100
+d198
+ch130
+eil76
+pr439
+u1060
+
+ */

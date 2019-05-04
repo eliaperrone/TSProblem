@@ -1,4 +1,3 @@
-
 public class TwoOpt {
 
     public TwoOpt(){ }

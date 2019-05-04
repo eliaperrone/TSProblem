@@ -1,15 +1,11 @@
-
 public class Place {
-
-    private static int idGenerator = 1;
 
     private int id;
     private double positionX;
     private double positionY;
 
-    public Place(double positionX, double positionY) {
-        this.id = idGenerator;
-        idGenerator++;
+    public Place(int id, double positionX, double positionY) {
+        this.id = id;
         this.positionX = positionX;
         this.positionY = positionY;
     }
@@ -30,7 +26,6 @@ public class Place {
         return ((int) (Math.sqrt(Math.pow(this.getPositionX()-b.getPositionX(),2) + Math.pow(this.getPositionY()-b.getPositionY(),2)) + 0.5));
     }
 
-    // piu veloce
     public int getDistanceByMatrix(Place b, int[][] matrixDistances){
         return matrixDistances[this.id-1][b.id-1];
     }
@@ -53,5 +48,4 @@ public class Place {
                 ", positionY=" + positionY +
                 '}';
     }
-
 }

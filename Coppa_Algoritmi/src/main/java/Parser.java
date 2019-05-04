@@ -54,7 +54,7 @@ public class Parser {
             List<String> tmp = Arrays.asList(line.split(" "));
             double x = Double.parseDouble(tmp.get(1));
             double y = Double.parseDouble(tmp.get(2));
-            output[k] = new Place(x,y);
+            output[k] = new Place(k+1,x,y);
             k++;
         }
         return output;

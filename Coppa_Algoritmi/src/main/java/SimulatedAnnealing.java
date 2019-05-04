@@ -54,7 +54,7 @@ public class SimulatedAnnealing {
         Tour current = tour;
         Tour best = current;
 
-        while((currentTime-initTime) < 172000){
+        while((currentTime-initTime) < 174000){
 
             for (int i=0; i<100; i++){
 
@@ -68,7 +68,7 @@ public class SimulatedAnnealing {
                         best = current;
                     }
 
-                }else if(random.nextDouble() < Math.pow(Math.E,(-(candidate.calculateDistanceTour(matrixDistances) - current.calculateDistanceTour(matrixDistances)))/(180000-(currentTime-initTime)))){
+                }else if(random.nextDouble() < Math.pow(Math.E,(-(candidate.calculateDistanceTour(matrixDistances) - current.calculateDistanceTour(matrixDistances)))/temperature)){
                     current = candidate;
                 }
             }

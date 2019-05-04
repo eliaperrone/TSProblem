@@ -1,4 +1,3 @@
-
 public class NearestNeighbor {
 
     public NearestNeighbor() { }

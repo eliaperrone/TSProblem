@@ -1,4 +1,3 @@
-
 public class Tour {
 
     private Place[] tour;
@@ -27,10 +26,6 @@ public class Tour {
     public int tourSize(){
         return tour.length;
     }
-
-//    public void addPlaceByIndex(int index, Place place){
-//        tour[index] = place;
-//    }
 
     public Place getPlace(int index){
         return tour[index];
